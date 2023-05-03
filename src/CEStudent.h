@@ -1,5 +1,5 @@
-#ifndef HODAG_H
-#define HODAG_H
+#ifndef CESTUDENT_H
+#define CESTUDENT_H
 
 class CEStudent {
 public:
