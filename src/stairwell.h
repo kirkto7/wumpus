@@ -8,8 +8,6 @@ public:
     Stairwell();
     
 private:
-    int health;
-    int damage;
     char token;
 };
 

@@ -8,28 +8,22 @@ MapCell::MapCell(int x, int y) {
     yLocation = y;
     hasPlayer = false;
     ce = nullptr;
+    entity = nullptr;
 }
 
-// Marks the current cell as occupied if it contains a cow or hodag
+// Marks the current cell as occupied if it contains a ce or entity
 bool MapCell::occupied() {
     bool result = false;
+    if (hasCE() || hasEntity())
+    {
+        result = true;
+    }
     return result;
 }
 
-bool MapCell::hasSomething() {
-    bool result = false;
-    return result;
-}
-
-bool MapCell::hasCE() {
-    bool result = false;
-    return result;
-}
 
 char MapCell::display() {
-}
-
-int MapCell::getDamage() {
+    return 't';
 }
 
 void MapCell::enter() {
@@ -40,4 +34,38 @@ void MapCell::enter() {
 void MapCell::vacate() {
     hasPlayer = false;
     // player leaves cell
+}
+
+bool MapCell::hasSomething() { //might not need this method depending on how you code deodorant
+    bool result = false;
+    return result;
+}
+
+int MapCell::getDamage() {
+}
+
+void MapCell::addCE(CEStudent *ceStudent) {
+    ce = ceStudent;
+}
+
+void MapCell::addEntity(Entity *something) {
+    entity = something;
+}
+
+bool MapCell::hasCE() {
+    bool result = false;
+    if (ce != nullptr)
+    {
+        result = true;
+    }
+    return result;
+}
+
+bool MapCell::hasEntity() {
+    bool result = false;
+    if (entity != nullptr) 
+    {
+        result = true;
+    }
+    return result;
 }
