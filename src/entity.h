@@ -17,4 +17,4 @@ private:
     std::string name;
 };
 
-#endif // ITEM_H
+#endif // ENTITY_H

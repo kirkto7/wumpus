@@ -14,4 +14,4 @@ private:
     int damage;
 };
 
-#endif // HODAG_H
+#endif // CESTUDENT_H
