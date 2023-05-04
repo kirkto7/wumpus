@@ -5,11 +5,13 @@
 class Player {
 
     public:
-        Player(Map *map, int startx, int starty) : map(*map), currx(startx), curry(starty), ammo(5), isDead(false){}
+        Player(Map *map, int startx, int starty) : map(*map), currx(startx), curry(starty), ammo(5), isDead(false){map->getCell(startx, starty)->enter();}
 
         bool move(char direction);
         bool shoot(char direction);
         void place(int x, int y);
+        bool isAlive(){return !isDead;}
+        int getAmmo(){return ammo;}
 
     private:
         void cleanCE(int val, int max, bool isX);

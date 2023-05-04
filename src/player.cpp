@@ -20,16 +20,17 @@ bool Player::move(char direction) {
         nexty -= 1;
         break;
       default:
+        cout << "Sorry, that wasn't a valid direction." << endl;
         break;
     }
-    if(nextx > map.WIDTH || nextx < 0 || nexty > map.HEIGHT || nexty < 0) {
+    if(nextx >= map.getWIDTH() || nextx < 0 || nexty >= map.getHEIGHT() || nexty < 0) {
       return false;
     }
     MapCell* cell = map.getCell(nextx, nexty);
     map.getCell(currx, curry)->vacate();
     if(cell->hasCE()) {
-        cout << "You run into a CE, trapping you in a conversation about assembly";
-        isDead = true;
+        cout << "You run into a CE, trapping you in a conversation about assembly." << endl;
+        this->isDead = true;
         return false;
     }
     if(cell->hasEntity()) {
@@ -47,21 +48,23 @@ bool Player::shoot(char direction) {
         ammo -= 1;
         switch(tolower(direction)) {
             case 'e':
-                cleanCE(currx, map.WIDTH, true);
+                cleanCE(currx, map.getWIDTH(), true);
                 break;
             case 'w':
-                cleanCE(currx, 0, true);
+                cleanCE(currx, -1, true);
                 break;
             case 's':
-                cleanCE(curry, map.HEIGHT, false);
+                cleanCE(curry, map.getHEIGHT(), false);
                 break;
             case 'n':
-                cleanCE(curry, 0, false);
+                cleanCE(curry, -1, false);
                 break;
             default:
                 break;
         }
+        cout << "You have " << ammo << " deodorants left." << endl;
     } else {
+        cout << "Sorry, you have no more deodorant left" << endl;
         return false;
     }
 }
@@ -73,7 +76,7 @@ void Player::cleanCE(int val, int max, bool isX) {
         MapCell* cell = isX ? map.getCell(val, curry) : map.getCell(currx, val);
         if(cell->hasCE()) {
             //remove CE
-            cout << "You hit the CE with deodorant!";
+            cout << "You hit the CE with deodorant!" << endl;
             break;
         }
         val += dir;
