@@ -23,7 +23,18 @@ bool MapCell::occupied() {
 
 
 char MapCell::display() {
-    return 't';
+    if (hasPlayer) 
+    {
+        return 'P';
+    } else if(hasSomething()) {
+        if(hasCE()) {
+            return ce->display();
+        } else if (hasEntity()) {
+            return entity->display();
+        }
+    } else {
+        return '_';
+    }
 }
 
 void MapCell::enter() {
@@ -38,10 +49,11 @@ void MapCell::vacate() {
 
 bool MapCell::hasSomething() { //might not need this method depending on how you code deodorant
     bool result = false;
+    if (occupied() || hasEntity())
+    {
+        result = true;
+    }
     return result;
-}
-
-int MapCell::getDamage() {
 }
 
 void MapCell::addCE(CEStudent *ceStudent) {

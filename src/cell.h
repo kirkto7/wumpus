@@ -1,6 +1,9 @@
 #ifndef CELL_H
 #define CELL_H
 
+#include "entity.h"
+#include "CEStudent.h"
+
 class CEStudent;
 class Entity;
 
@@ -17,8 +20,6 @@ public:
     void enter();
     void vacate();
     bool hasSomething();
-    int getDamage();
-    void removeItem();
     void addCE(CEStudent *ceStudent);
     void addEntity(Entity *something);
     bool hasCE();
