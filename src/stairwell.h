@@ -3,7 +3,7 @@
 
 #include "entity.h"
 
-class Stairwell {
+class Stairwell : public Entity {
 public:
     Stairwell();
     
