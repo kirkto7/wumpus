@@ -1,8 +1,5 @@
 #include "map.h"
-#include "cell.h"
-#include "CEStudent.h"
-#include "stairwell.h"
-#include "classroom.h"
+#include "entity.h"
 #include <iostream>
 
 using namespace std;
@@ -39,7 +36,7 @@ void Map::load(int playerX, int playerY) {
         CEX = rand() % range;
         CEY = rand() % range;
     }
-    cells[CEX][CEY]->addCE(new CEStudent());
+    // cells[CEX][CEY]->addCE(new CEStudent());
 
     while (cells[stairwellX][stairwellY]->hasEntity() || (stairwellX == playerX && stairwellY == playerY))
     {
@@ -76,9 +73,9 @@ bool Map::getCEStatus() {
 }
 
 void Map::changeCEStatus(int x, int y) {
-    if (cells[x][y]->hasCE())
-    {
-        CEAlive = false;
-    }
+    // if (cells[x][y]->hasCE())
+    // {
+    //     CEAlive = false;
+    // }
     
 }

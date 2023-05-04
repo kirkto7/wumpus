@@ -1,6 +1,7 @@
 #ifndef MAP_H
 #define MAP_H
 
+#include "cell.h"
 class MapCell;
 
 class Map {
