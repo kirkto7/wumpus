@@ -36,7 +36,7 @@ void Map::load(int playerX, int playerY) {
         CEX = rand() % range;
         CEY = rand() % range;
     }
-    // cells[CEX][CEY]->addCE(new CEStudent());
+    cells[CEX][CEY]->addEntity(new CEStudent());
 
     while (cells[stairwellX][stairwellY]->hasEntity() || (stairwellX == playerX && stairwellY == playerY))
     {
@@ -68,14 +68,14 @@ MapCell* Map::getCell(int x, int y) {
     return cells[x][y];
 }
 
-bool Map::getCEStatus() {
-    return CEAlive;
-}
+void Map::spawnEntity(int range, int playerX, int playerY, Entity* entity) {
+    int x = rand() % range;
+    int y = rand() % range;
 
-void Map::changeCEStatus(int x, int y) {
-    // if (cells[x][y]->hasCE())
-    // {
-    //     CEAlive = false;
-    // }
-    
+    while (cells[x][y]->hasEntity() || (x == playerX && y == playerY)) 
+    {
+        x = rand() % range;
+        y = rand() % range;
+    }
+    cells[x][y]->addEntity(entity);
 }

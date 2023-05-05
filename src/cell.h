@@ -17,7 +17,9 @@ public:
     void vacate();
     void addEntity(Entity *something);
     bool hasEntity();
+    void removeEntity() {entity = nullptr;}
     Entity* getEntity() { return entity;}
+    bool cellHasPlayer() { return hasPlayer;}
 };
 
 #endif // CELL_H

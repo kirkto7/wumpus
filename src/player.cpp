@@ -78,7 +78,7 @@ void Player::cleanCE(int val, int max, bool isX) {
     while(val != max) { 
         MapCell* cell = isX ? map->getCell(val, curry) : map->getCell(currx, val);
         if(cell->hasEntity() && typeid(*cell->getEntity()) == typeid(CEStudent)) {
-            //remove CE
+            cell->removeEntity();
             cout << "You hit the CE with deodorant!" << endl;
             break;
         }

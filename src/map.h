@@ -14,8 +14,7 @@ public:
     void load(int playerX, int playerY);
     void write();
     MapCell* getCell(int x, int y);
-    bool getCEStatus();
-    void changeCEStatus(int x, int y);
+    void spawnEntity(int range, int playerX, int playerY, Entity* entity);
     int getWIDTH() {return WIDTH;}
     int getHEIGHT() {return HEIGHT;}
 };

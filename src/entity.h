@@ -7,44 +7,36 @@ class Player;
 class Entity {
 public:
     Entity();
-    char display();
+    virtual char display() = 0;
     std::string getName();
     virtual void act(Player* player) = 0;
     virtual void printWarning() = 0;
 private:
-    char token;
     std::string name;
 };
 
 class Stairwell : public Entity {
 public:
-    Stairwell();
+    Stairwell(){}
+    char display() override;
     void act(Player* player) override;
     void printWarning() override;
-    
-private:
-    char token;
 };
 
 class Classroom : public Entity {
 public:
-    Classroom();
+    Classroom(){}
+    char display() override;
     void printWarning() override;
     void act(Player* player) override;
-
-private:
-    char token;
 };
 
 class CEStudent : public Entity {
 public:
-    CEStudent();
-    char display();
+    CEStudent(){}
+    char display() override;
     void act(Player* player) override;
     void printWarning() override;
-
-private:
-    char token;
 };
 
 

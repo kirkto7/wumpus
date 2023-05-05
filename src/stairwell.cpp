@@ -3,9 +3,6 @@
 
 using namespace std;
 
-Stairwell::Stairwell() {
-    token = 'S';
-}
 
 void Stairwell::act(Player* player) {
     int x = rand() % 5;
@@ -15,4 +12,8 @@ void Stairwell::act(Player* player) {
 
 void Stairwell::printWarning() {
     cout << "You feel the wind of a door close" << endl;
+}
+
+char Stairwell::display() {
+    return 'S';
 }
