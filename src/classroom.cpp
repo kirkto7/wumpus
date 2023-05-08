@@ -4,7 +4,7 @@
 using namespace std;
 
 void Classroom::printWarning() {
-    cout << "You hear your prefessor lecturing." << endl;
+    cout << "You hear your professor lecturing." << endl;
 }
 
 void Classroom::act(Player* player) {

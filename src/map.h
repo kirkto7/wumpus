@@ -15,6 +15,7 @@ public:
     void write();
     MapCell* getCell(int x, int y);
     void spawnEntity(int range, int playerX, int playerY, Entity* entity);
+    void spawnCE(int playerX, int playerY);
     int getWIDTH() {return WIDTH;}
     int getHEIGHT() {return HEIGHT;}
 };

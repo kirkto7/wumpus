@@ -11,11 +11,11 @@ void move(Player* player) {
     player->move(dir);
 }
 
-void shoot(Player* player) {
+bool shoot(Player* player) {
     char dir;
     cout << "What direction to shoot: (N)orth, (S)outh, (E)ast, (W)est: ";
     cin >> dir;
-    player->shoot(dir);
+    return player->shoot(dir);
 }
 
 int main() {
@@ -27,24 +27,30 @@ int main() {
     bool gameWon = false;
     int cleanedCEs = 0;
     while(!gameWon && player->isAlive()) {
-        m->write();
         char cmd;
-        cout << "Do Something: (M)ove, (S)hoot, (Q)uit: ";     
+        cout << "Do Something: (M)ove, (S)hoot, (P)rint, (Q)uit: ";     
         cin >> cmd;  
         switch(tolower(cmd)) {
             case 'm':
                 move(player);
                 break;
             case 's':
-                shoot(player);
+                if(shoot(player)) {
+                    cleanedCEs += 1;
+                    m->spawnCE(player->getCurrx(), player->getCurry());
+                }
                 break;
             case 'q':
                 return 0;
+                break;
+            case 'w':
+                m->write();
                 break;
             default:
                 cout << "Sorry, that isn't a valid command." << endl;
                 break;
         }
+        gameWon = cleanedCEs >= 3;
     }
     if(gameWon) {
         cout << "Congrats, you escaped the science building!" << endl;

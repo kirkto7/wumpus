@@ -22,9 +22,12 @@ class Player {
         bool isAlive(){return !isDead;}
         int getAmmo(){return ammo;}
         void kill();
+        int getCurrx() {return currx;}
+        int getCurry() {return curry;}
 
     private:
-        void cleanCE(int val, int max, bool isX);
+        bool cleanCE(int val, int max, bool isX);
+        void findWarnings();
         Map* map;
         int currx;
         int curry;
