@@ -43,7 +43,7 @@ int main() {
             case 'q':
                 return 0;
                 break;
-            case 'w':
+            case 'p':
                 m->write();
                 break;
             default:
